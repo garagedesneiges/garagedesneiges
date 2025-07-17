@@ -13,9 +13,9 @@
             theme: {
                 extend: {
                     colors: {
-                        primary: "#1e40af",
-                        secondary: "#1e3a8a",
-                        accent: "#dc2626"
+                        primary: "#000000",  // Noir
+                        secondary: "#383838", // Gris anthracite
+                        accent: "#800020"    // Rouge bordeaux
                     },
                     fontFamily: {
                         sans: ['"Segoe UI"', 'Roboto', 'sans-serif']
@@ -25,7 +25,7 @@
         }
     </script>
 </head>
-<body class="min-h-screen bg-gray-50">
+<body class="min-h-screen bg-gray-100">
     <header class="bg-white shadow-md">
         <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
             <div class="flex items-center">
@@ -33,9 +33,9 @@
                 <h1 class="text-xl font-bold text-primary">GARAGE DES NEIGES</h1>
             </div>
             <div class="hidden md:flex space-x-6">
-                <a href="#services" class="text-gray-700 hover:text-primary transition-colors">Services</a>
-                <a href="#contact" class="text-gray-700 hover:text-primary transition-colors">Contact</a>
-                <a href="#horaires" class="text-gray-700 hover:text-primary transition-colors">Horaires</a>
+                <a href="#services" class="text-gray-700 hover:text-accent transition-colors">Services</a>
+                <a href="#contact" class="text-gray-700 hover:text-accent transition-colors">Contact</a>
+                <a href="#horaires" class="text-gray-700 hover:text-accent transition-colors">Horaires</a>
             </div>
             <button class="md:hidden text-gray-700">
                 <i class="fas fa-bars text-2xl"></i>
@@ -46,11 +46,11 @@
     <main class="container mx-auto px-4 py-8">
         <!-- Hero Section -->
         <section class="mb-12">
-            <div class="bg-primary rounded-lg p-8 text-white">
+            <div class="bg-gradient-to-r from-primary to-secondary rounded-lg p-8 text-white">
                 <h2 class="text-3xl font-bold mb-4">Votre garage automobile à Pontarlier</h2>
                 <p class="text-lg mb-6">Professionnels de l'automobile depuis plus de 20 ans, nous prenons soin de votre véhicule avec expertise et passion.</p>
                 <div class="flex flex-wrap gap-4">
-                    <a href="#contact" class="bg-white text-primary px-6 py-3 rounded-lg font-medium hover:bg-gray-100 transition-colors">
+                    <a href="#contact" class="bg-accent text-white px-6 py-3 rounded-lg font-medium hover:bg-red-900 transition-colors">
                         <i class="fas fa-phone-alt mr-2"></i>Nous contacter
                     </a>
                     <a href="#services" class="border-2 border-white text-white px-6 py-3 rounded-lg font-medium hover:bg-white hover:text-primary transition-colors">
@@ -62,45 +62,45 @@
 
         <!-- Services Section -->
         <section id="services" class="mb-12">
-            <h2 class="text-2xl font-bold mb-6 text-gray-800 border-b-2 border-primary pb-2">🔧 Nos Services</h2>
+            <h2 class="text-2xl font-bold mb-6 text-gray-800 border-b-2 border-accent pb-2">🔧 Nos Services</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow">
-                    <div class="text-primary text-3xl mb-3">
+                <div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow border-l-4 border-accent">
+                    <div class="text-accent text-3xl mb-3">
                         <i class="fas fa-car"></i>
                     </div>
                     <h3 class="text-xl font-semibold mb-2">Maintenance mécanique</h3>
                     <p class="text-gray-600">Révisions complètes et réparations mécaniques pour assurer le bon fonctionnement de votre véhicule.</p>
                 </div>
-                <div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow">
-                    <div class="text-primary text-3xl mb-3">
+                <div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow border-l-4 border-accent">
+                    <div class="text-accent text-3xl mb-3">
                         <i class="fas fa-oil-can"></i>
                     </div>
                     <h3 class="text-xl font-semibold mb-2">Entretien courant</h3>
                     <p class="text-gray-600">Vidanges, freins, pneus, filtres et tous les entretiens réguliers pour votre véhicule.</p>
                 </div>
-                <div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow">
-                    <div class="text-primary text-3xl mb-3">
+                <div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow border-l-4 border-accent">
+                    <div class="text-accent text-3xl mb-3">
                         <i class="fas fa-paint-roller"></i>
                     </div>
                     <h3 class="text-xl font-semibold mb-2">Carrosserie</h3>
                     <p class="text-gray-600">Peinture, débosselage et réparations de carrosserie pour redonner à votre voiture son aspect d'origine.</p>
                 </div>
-                <div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow">
-                    <div class="text-primary text-3xl mb-3">
+                <div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow border-l-4 border-accent">
+                    <div class="text-accent text-3xl mb-3">
                         <i class="fas fa-microchip"></i>
                     </div>
                     <h3 class="text-xl font-semibold mb-2">Diagnostic électronique</h3>
                     <p class="text-gray-600">Identification précise des pannes électroniques avec nos outils professionnels.</p>
                 </div>
-                <div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow">
-                    <div class="text-primary text-3xl mb-3">
+                <div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow border-l-4 border-accent">
+                    <div class="text-accent text-3xl mb-3">
                         <i class="fas fa-snowflake"></i>
                     </div>
                     <h3 class="text-xl font-semibold mb-2">Climatisation</h3>
                     <p class="text-gray-600">Recharge, réparation et entretien des systèmes de climatisation automobile.</p>
                 </div>
-                <div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow">
-                    <div class="text-primary text-3xl mb-3">
+                <div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow border-l-4 border-accent">
+                    <div class="text-accent text-3xl mb-3">
                         <i class="fas fa-cogs"></i>
                     </div>
                     <h3 class="text-xl font-semibold mb-2">Réparations toutes marques</h3>
@@ -112,11 +112,11 @@
         <!-- Contact & Hours Section -->
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
             <!-- Contact Section -->
-            <section id="contact" class="bg-white p-6 rounded-lg shadow-sm">
-                <h2 class="text-2xl font-bold mb-6 text-gray-800 border-b-2 border-primary pb-2">📞 Contact</h2>
+            <section id="contact" class="bg-white p-6 rounded-lg shadow-sm border-t-4 border-accent">
+                <h2 class="text-2xl font-bold mb-6 text-gray-800 border-b-2 border-accent pb-2">📞 Contact</h2>
                 <div class="space-y-4">
                     <div class="flex items-start">
-                        <div class="text-primary mr-4 mt-1">
+                        <div class="text-accent mr-4 mt-1">
                             <i class="fas fa-map-marker-alt"></i>
                         </div>
                         <div>
@@ -125,7 +125,7 @@
                         </div>
                     </div>
                     <div class="flex items-start">
-                        <div class="text-primary mr-4 mt-1">
+                        <div class="text-accent mr-4 mt-1">
                             <i class="fas fa-phone"></i>
                         </div>
                         <div>
@@ -134,7 +134,7 @@
                         </div>
                     </div>
                     <div class="flex items-start">
-                        <div class="text-primary mr-4 mt-1">
+                        <div class="text-accent mr-4 mt-1">
                             <i class="fas fa-mobile-alt"></i>
                         </div>
                         <div>
@@ -146,8 +146,8 @@
             </section>
 
             <!-- Hours Section -->
-            <section id="horaires" class="bg-white p-6 rounded-lg shadow-sm">
-                <h2 class="text-2xl font-bold mb-6 text-gray-800 border-b-2 border-primary pb-2">⏰ Horaires d'ouverture</h2>
+            <section id="horaires" class="bg-white p-6 rounded-lg shadow-sm border-t-4 border-accent">
+                <h2 class="text-2xl font-bold mb-6 text-gray-800 border-b-2 border-accent pb-2">⏰ Horaires d'ouverture</h2>
                 <div class="space-y-3">
                     <div class="flex justify-between">
                         <span class="font-medium">Lundi à Vendredi</span>
@@ -167,25 +167,25 @@
 
         <!-- Map Section -->
         <section class="mb-12">
-            <h2 class="text-2xl font-bold mb-6 text-gray-800 border-b-2 border-primary pb-2">📍 Nous trouver</h2>
+            <h2 class="text-2xl font-bold mb-6 text-gray-800 border-b-2 border-accent pb-2">📍 Nous trouver</h2>
             <div class="bg-white p-4 rounded-lg shadow-sm">
                 <div class="aspect-w-16 aspect-h-9">
                     <iframe 
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2701.234567890123!2d6.351234!3d46.902345!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDbCsDU0JzA4LjQiTiA2wrAyMScwNC40IkU!5e0!3m2!1sfr!2sfr!4v1234567890123!5m2!1sfr!2sfr" 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2701.234567890123!2d6.351234!3d46.902345!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x478c64d2df5ac4c5%3A0x10e8d6a4a0a3b1a1!2s10%20Rue%20Arago%2C%2025300%20Pontarlier%2C%20France!5e0!3m2!1sfr!2sfr!4v1620000000000!5m2!1sfr!2sfr" 
                         width="100%" 
                         height="400" 
                         style="border:0;" 
                         allowfullscreen="" 
                         loading="lazy" 
                         class="rounded-lg"
-                        title="Carte Google Maps du Garage des Neiges"
+                        title="Carte Google Maps du Garage des Neiges à Pontarlier"
                     ></iframe>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer class="bg-gray-800 text-white py-8">
+    <footer class="bg-primary text-white py-8">
         <div class="container mx-auto px-4">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div>
@@ -195,24 +195,24 @@
                 <div>
                     <h3 class="text-xl font-bold mb-4">Liens rapides</h3>
                     <ul class="space-y-2">
-                        <li><a href="#services" class="text-gray-300 hover:text-white transition-colors">Nos services</a></li>
-                        <li><a href="#contact" class="text-gray-300 hover:text-white transition-colors">Contact</a></li>
-                        <li><a href="#horaires" class="text-gray-300 hover:text-white transition-colors">Horaires</a></li>
+                        <li><a href="#services" class="text-gray-300 hover:text-accent transition-colors">Nos services</a></li>
+                        <li><a href="#contact" class="text-gray-300 hover:text-accent transition-colors">Contact</a></li>
+                        <li><a href="#horaires" class="text-gray-300 hover:text-accent transition-colors">Horaires</a></li>
                     </ul>
                 </div>
                 <div>
                     <h3 class="text-xl font-bold mb-4">Nous suivre</h3>
                     <div class="flex space-x-4">
-                        <a href="#" class="text-gray-300 hover:text-white text-2xl transition-colors">
+                        <a href="#" class="text-gray-300 hover:text-accent text-2xl transition-colors">
                             <i class="fab fa-facebook"></i>
                         </a>
-                        <a href="#" class="text-gray-300 hover:text-white text-2xl transition-colors">
+                        <a href="#" class="text-gray-300 hover:text-accent text-2xl transition-colors">
                             <i class="fab fa-instagram"></i>
                         </a>
                     </div>
                 </div>
             </div>
-            <div class="border-t border-gray-700 mt-8 pt-6 text-center text-gray-400">
+            <div class="border-t border-secondary mt-8 pt-6 text-center text-gray-400">
                 <p>&copy; 2023 Garage des Neiges. Tous droits réservés.</p>
             </div>
         </div>
