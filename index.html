@@ -1,242 +1,598 @@
-<!DOCTYPE html>
+!DOCTYPE html>
 <html lang="fr">
 <head>
     <base target="_self">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Garage des Neiges - Réparation et entretien automobile à Pontarlier</title>
-    <meta name="description" content="Garage automobile professionnel à Pontarlier. Entretien, réparation mécanique, carrosserie et diagnostic électronique pour toutes marques.">
+    <title>Garage des Neiges - Excellence Automobile à Pontarlier</title>
+    <meta name="description" content="Garage haut de gamme à Pontarlier - Mécanique experte, carrosserie d'art, entretien sur mesure pour toutes marques">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
             theme: {
+                fontFamily: {
+                    sans: ['Montserrat', 'sans-serif'],
+                },
                 extend: {
                     colors: {
-                        primary: "#1e40af",
-                        secondary: "#1e3a8a",
-                        accent: "#dc2626"
+                        noir: "#0a0a0a",
+                        anthracite: "#2a2a2a",
+                        bordeaux: "#6d1a1a",
+                        bordeauxClair: "#8d2a2a"
                     },
-                    fontFamily: {
-                        sans: ['"Segoe UI"', 'Roboto', 'sans-serif']
+                    animation: {
+                        'fade-in': 'fadeIn 1s ease-in-out',
+                        'slide-up': 'slideUp 0.8s ease-out',
+                        'float': 'float 6s ease-in-out infinite'
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' }
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(20px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' }
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' }
+                        }
                     }
                 }
             }
         }
     </script>
+    <style>
+        .hero-gradient {
+            background: linear-gradient(135deg, rgba(10,10,10,0.95) 0%, rgba(42,42,42,0.9) 100%);
+        }
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+        .social-icon {
+            transition: all 0.3s ease;
+        }
+        .social-icon:hover {
+            transform: scale(1.2) translateY(-3px);
+        }
+    </style>
 </head>
-<body class="min-h-screen bg-gray-50">
-    <header class="bg-white shadow-md">
-        <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
-            <div class="flex items-center">
-                <img src="https://picsum.photos/50?random=1" alt="Logo Garage des Neiges" class="h-12 w-12 rounded-full mr-3">
-                <h1 class="text-xl font-bold text-primary">GARAGE DES NEIGES</h1>
+<body class="min-h-screen bg-gray-50 font-sans antialiased">
+    <!-- Splash Screen avec Logo -->
+    <div id="splash" class="fixed inset-0 bg-noir flex items-center justify-center z-50 transition-opacity duration-1000 opacity-100">
+        <img src="images/logo.png" alt="Logo Garage des Neiges" class="w-1/2 animate-float">
+    </div>
+
+    <!-- Header Avancé -->
+    <header class="fixed w-full bg-noir/90 backdrop-blur-md z-40 shadow-xl transition-all duration-300">
+        <div class="container mx-auto px-6 py-3">
+            <div class="flex justify-between items-center">
+                <a href="#" class="flex items-center space-x-3">
+                    <img src="images/logo.png" alt="Logo Garage des Neiges" class="h-12 transition-all duration-300 hover:opacity-80">
+                </a>
+                
+                <nav class="hidden lg:flex space-x-8">
+                    <a href="#accueil" class="text-white hover:text-bordeauxClair font-medium transition-colors duration-300 relative group">
+                        Accueil
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-bordeaux transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="#services" class="text-white hover:text-bordeauxClair font-medium transition-colors duration-300 relative group">
+                        Services
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-bordeaux transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="#contact" class="text-white hover:text-bordeauxClair font-medium transition-colors duration-300 relative group">
+                        Contact
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-bordeaux transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                </nav>
+                
+                <div class="flex items-center space-x-4">
+                    <a href="tel:+33363800043" class="hidden md:flex items-center text-white hover:text-bordeauxClair transition-colors duration-300">
+                        <i class="fas fa-phone-alt mr-2"></i>
+                        <span class="font-medium">03 63 80 00 43</span>
+                    </a>
+                    <button id="menu-toggle" class="lg:hidden text-white text-2xl focus:outline-none">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
             </div>
-            <div class="hidden md:flex space-x-6">
-                <a href="#services" class="text-gray-700 hover:text-primary transition-colors">Services</a>
-                <a href="#contact" class="text-gray-700 hover:text-primary transition-colors">Contact</a>
-                <a href="#horaires" class="text-gray-700 hover:text-primary transition-colors">Horaires</a>
-            </div>
-            <button class="md:hidden text-gray-700">
-                <i class="fas fa-bars text-2xl"></i>
-            </button>
-        </nav>
+        </div>
     </header>
 
-    <main class="container mx-auto px-4 py-8">
+    <!-- Menu Mobile -->
+    <div id="mobile-menu" class="fixed inset-0 bg-noir/95 z-30 flex flex-col items-center justify-center space-y-8 opacity-0 pointer-events-none transition-all duration-300">
+        <button id="close-menu" class="absolute top-6 right-6 text-white text-3xl">
+            <i class="fas fa-times"></i>
+        </button>
+        <a href="#accueil" class="text-white text-2xl font-medium hover:text-bordeauxClair transition-colors duration-300">Accueil</a>
+        <a href="#services" class="text-white text-2xl font-medium hover:text-bordeauxClair transition-colors duration-300">Services</a>
+        <a href="#contact" class="text-white text-2xl font-medium hover:text-bordeauxClair transition-colors duration-300">Contact</a>
+        <div class="pt-8 border-t border-anthracite w-48 text-center">
+            <a href="tel:+33695636668" class="text-white hover:text-bordeauxClair transition-colors duration-300 flex items-center justify-center">
+                <i class="fas fa-phone-alt mr-2"></i>
+                <span>03 63 80 00 43</span>
+            </a>
+        </div>
+    </div>
+
+    <main>
         <!-- Hero Section -->
-        <section class="mb-12">
-            <div class="bg-primary rounded-lg p-8 text-white">
-                <h2 class="text-3xl font-bold mb-4">Votre garage automobile à Pontarlier</h2>
-                <p class="text-lg mb-6">Professionnels de l'automobile depuis plus de 20 ans, nous prenons soin de votre véhicule avec expertise et passion.</p>
-                <div class="flex flex-wrap gap-4">
-                    <a href="#contact" class="bg-white text-primary px-6 py-3 rounded-lg font-medium hover:bg-gray-100 transition-colors">
-                        <i class="fas fa-phone-alt mr-2"></i>Nous contacter
+        <section id="accueil" class="relative h-screen flex items-center justify-center overflow-hidden">
+            <div class="absolute inset-0">
+                <img src="images/fond.png" alt="Garage automobile moderne" class="w-full h-full object-cover">
+                <div class="absolute inset-0 hero-gradient"></div>
+            </div>
+            
+            <div class="relative z-10 text-center px-6 animate-fade-in">
+                <h1 class="text-4xl md:text-6xl font-bold text-white mb-6 animate-slide-up">
+                    GARAGE <span class="text-bordeaux">DES NEIGES</span>
+                </h1>
+                <p class="text-xl text-white/90 max-w-2xl mx-auto mb-8 animate-slide-up animation-delay-100">
+                    Votre expert automobile à Pontarlier – entretien, réparation et confiance avec plus de 10 ans d'expérience.
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4 animate-slide-up animation-delay-200">
+                    <a href="#services" class="bg-bordeaux hover:bg-bordeauxClair text-white font-bold py-3 px-8 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg">
+                        Nos services
                     </a>
-                    <a href="#services" class="border-2 border-white text-white px-6 py-3 rounded-lg font-medium hover:bg-white hover:text-primary transition-colors">
-                        <i class="fas fa-tools mr-2"></i>Nos services
+                    <a href="#contact" class="bg-transparent border-2 border-white text-white hover:bg-white/10 font-bold py-3 px-8 rounded-full transition-all duration-300 transform hover:scale-105">
+                        Prendre RDV
                     </a>
+                </div>
+            </div>
+            
+            <a href="#presentation" class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce text-white text-4xl">
+                <i class="fas fa-chevron-down"></i>
+            </a>
+        </section>
+
+        <!-- Infos Pratiques -->
+        <section id="presentation" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div class="animate-fade-in">
+                        <h2 class="text-3xl font-bold text-noir mb-6">
+                            Votre <span class="text-bordeaux">garage</span> de confiance à Pontarlier
+                        </h2>
+                        <p class="text-anthracite mb-6 text-lg leading-relaxed">
+                            Situé au cœur de Pontarlier, le Garage des Neiges met à votre disposition son expertise automobile depuis plus de 15 ans. Notre équipe de professionnels qualifiés s'engage à vous offrir un service de qualité pour tous types de véhicules.
+                        </p>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="flex items-start space-x-4">
+                                <div class="text-bordeaux text-2xl mt-1">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-noir mb-1">Adresse</h3>
+                                    <p class="text-anthracite">10 rue Arago<br>25300 Pontarlier</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start space-x-4">
+                                <div class="text-bordeaux text-2xl mt-1">
+                                    <i class="fas fa-clock"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-noir mb-1">Horaires</h3>
+                                    <p class="text-anthracite">
+                                        Lun-Ven: 8h30-12h / 14h-18h30<br>
+                                        Sam: 8h30-13h<br>
+                                        Dim: Fermé
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start space-x-4">
+                                <div class="text-bordeaux text-2xl mt-1">
+                                    <i class="fas fa-phone-alt"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-noir mb-1">Téléphone</h3>
+                                    <p class="text-anthracite">
+                                        03 63 80 00 43<br>
+                                        06 95 63 66 68
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start space-x-4">
+                                <div class="text-bordeaux text-2xl mt-1">
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-noir mb-1">Google</h3>
+                                    <p class="text-anthracite">
+                                        ★★★★★ (4.9/5)<br>
+                                        <a href="#" class="text-bordeaux hover:underline">Voir les avis</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="relative h-96 lg:h-full rounded-xl overflow-hidden shadow-2xl animate-fade-in animation-delay-100">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d286.4812052011809!2d6.343568142066233!3d46.91286750965442!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x478dbd8558d53575%3A0xe150721ef29431a3!2sGarage%20des%20neiges!5e0!3m2!1sfr!2sfr!4v1752788211811!5m2!1sfr!2sfr" 
+                            width="100%" 
+                            height="100%" 
+                            style="border:0;" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                        <div class="absolute inset-0 bg-gradient-to-t from-noir/30 to-transparent pointer-events-none"></div>
+                    </div>
                 </div>
             </div>
         </section>
 
         <!-- Services Section -->
-        <section id="services" class="mb-12">
-            <h2 class="text-2xl font-bold mb-6 text-gray-800 border-b-2 border-primary pb-2">🔧 Nos Services</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow">
-                    <div class="text-primary text-3xl mb-3">
-                        <i class="fas fa-car"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-2">Maintenance mécanique</h3>
-                    <p class="text-gray-600">Révisions complètes et réparations mécaniques pour assurer le bon fonctionnement de votre véhicule.</p>
+        <section id="services" class="py-20 bg-gray-100">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16 animate-fade-in">
+                    <h2 class="text-4xl font-bold text-noir mb-4">
+                        Nos <span class="text-bordeaux">services</span> experts
+                    </h2>
+                    <p class="text-xl text-anthracite max-w-2xl mx-auto">
+                        Des prestations complètes réalisées par des professionnels qualifiés
+                    </p>
                 </div>
-                <div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow">
-                    <div class="text-primary text-3xl mb-3">
-                        <i class="fas fa-oil-can"></i>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Service 1 -->
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-500 service-card animate-slide-up">
+                        <div class="h-48 overflow-hidden">
+                            <img src="images/maintenance.png" alt="Maintenance mécanique" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                        </div>
+                        <div class="p-6">
+                            <div class="text-bordeaux text-3xl mb-4">
+                                <i class="fas fa-cogs"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-noir mb-3">Maintenance mécanique</h3>
+                            <p class="text-anthracite mb-4">
+                                Réparation complète de tous les systèmes mécaniques de votre véhicule par nos experts certifiés.
+                            </p>
+                            <a href="#contact" class="inline-flex items-center text-bordeaux font-medium hover:text-bordeauxClair transition-colors duration-300">
+                                Prendre RDV
+                                <i class="fas fa-arrow-right ml-2"></i>
+                            </a>
+                        </div>
                     </div>
-                    <h3 class="text-xl font-semibold mb-2">Entretien courant</h3>
-                    <p class="text-gray-600">Vidanges, freins, pneus, filtres et tous les entretiens réguliers pour votre véhicule.</p>
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow">
-                    <div class="text-primary text-3xl mb-3">
-                        <i class="fas fa-paint-roller"></i>
+                    
+                    <!-- Service 2 -->
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-500 service-card animate-slide-up animation-delay-100">
+                        <div class="h-48 overflow-hidden">
+                            <img src="images/entretien.png" alt="Entretien courant" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                        </div>
+                        <div class="p-6">
+                            <div class="text-bordeaux text-3xl mb-4">
+                                <i class="fas fa-oil-can"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-noir mb-3">Entretien courant</h3>
+                            <p class="text-anthracite mb-4">
+                                Vidange, freins, pneus et autres entretiens réguliers pour maintenir votre véhicule en parfait état.
+                            </p>
+                            <a href="#contact" class="inline-flex items-center text-bordeaux font-medium hover:text-bordeauxClair transition-colors duration-300">
+                                Prendre RDV
+                                <i class="fas fa-arrow-right ml-2"></i>
+                            </a>
+                        </div>
                     </div>
-                    <h3 class="text-xl font-semibold mb-2">Carrosserie</h3>
-                    <p class="text-gray-600">Peinture, débosselage et réparations de carrosserie pour redonner à votre voiture son aspect d'origine.</p>
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow">
-                    <div class="text-primary text-3xl mb-3">
-                        <i class="fas fa-microchip"></i>
+                    
+                    <!-- Service 3 -->
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-500 service-card animate-slide-up animation-delay-200">
+                        <div class="h-48 overflow-hidden">
+                            <img src="images/carrosserie.png" alt="Carrosserie" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                        </div>
+                        <div class="p-6">
+                            <div class="text-bordeaux text-3xl mb-4">
+                                <i class="fas fa-car-crash"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-noir mb-3">Carrosserie</h3>
+                            <p class="text-anthracite mb-4">
+                                Peinture, débosselage et réparations de carrosserie pour redonner à votre véhicule son aspect d'origine.
+                            </p>
+                            <a href="#contact" class="inline-flex items-center text-bordeaux font-medium hover:text-bordeauxClair transition-colors duration-300">
+                                Prendre RDV
+                                <i class="fas fa-arrow-right ml-2"></i>
+                            </a>
+                        </div>
                     </div>
-                    <h3 class="text-xl font-semibold mb-2">Diagnostic électronique</h3>
-                    <p class="text-gray-600">Identification précise des pannes électroniques avec nos outils professionnels.</p>
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow">
-                    <div class="text-primary text-3xl mb-3">
-                        <i class="fas fa-snowflake"></i>
+                    
+                    <!-- Service 4 -->
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-500 service-card animate-slide-up">
+                        <div class="h-48 overflow-hidden">
+                            <img src="images/diagnostic.png" alt="Diagnostic électronique" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                        </div>
+                        <div class="p-6">
+                            <div class="text-bordeaux text-3xl mb-4">
+                                <i class="fas fa-microchip"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-noir mb-3">Diagnostic électronique</h3>
+                            <p class="text-anthracite mb-4">
+                                Analyse complète des systèmes électroniques avec des outils professionnels pour identifier rapidement les problèmes.
+                            </p>
+                            <a href="#contact" class="inline-flex items-center text-bordeaux font-medium hover:text-bordeauxClair transition-colors duration-300">
+                                Prendre RDV
+                                <i class="fas fa-arrow-right ml-2"></i>
+                            </a>
+                        </div>
                     </div>
-                    <h3 class="text-xl font-semibold mb-2">Climatisation</h3>
-                    <p class="text-gray-600">Recharge, réparation et entretien des systèmes de climatisation automobile.</p>
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow">
-                    <div class="text-primary text-3xl mb-3">
-                        <i class="fas fa-cogs"></i>
+                    
+                    <!-- Service 5 -->
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-500 service-card animate-slide-up animation-delay-100">
+                        <div class="h-48 overflow-hidden">
+                            <img src="images/clim.png" alt="Climatisation" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                        </div>
+                        <div class="p-6">
+                            <div class="text-bordeaux text-3xl mb-4">
+                                <i class="fas fa-snowflake"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-noir mb-3">Climatisation</h3>
+                            <p class="text-anthracite mb-4">
+                                Réparation, recharge et entretien des systèmes de climatisation pour votre confort toute l'année.
+                            </p>
+                            <a href="#contact" class="inline-flex items-center text-bordeaux font-medium hover:text-bordeauxClair transition-colors duration-300">
+                                Prendre RDV
+                                <i class="fas fa-arrow-right ml-2"></i>
+                            </a>
+                        </div>
                     </div>
-                    <h3 class="text-xl font-semibold mb-2">Réparations toutes marques</h3>
-                    <p class="text-gray-600">Nous intervenons sur tous types de véhicules, quelle que soit la marque.</p>
+                    
+                    <!-- Service 6 -->
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-500 service-card animate-slide-up animation-delay-200">
+                        <div class="h-48 overflow-hidden">
+                            <img src="images/marques.png" alt="Toutes marques" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                        </div>
+                        <div class="p-6">
+                            <div class="text-bordeaux text-3xl mb-4">
+                                <i class="fas fa-car-alt"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-noir mb-3">Réparations toutes marques</h3>
+                            <p class="text-anthracite mb-4">
+                                Expertise sur tous types de véhicules, des citadines aux utilitaires en passant par les modèles premium.
+                            </p>
+                            <a href="#contact" class="inline-flex items-center text-bordeaux font-medium hover:text-bordeauxClair transition-colors duration-300">
+                                Prendre RDV
+                                <i class="fas fa-arrow-right ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- Contact & Hours Section -->
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
-            <!-- Contact Section -->
-            <section id="contact" class="bg-white p-6 rounded-lg shadow-sm">
-                <h2 class="text-2xl font-bold mb-6 text-gray-800 border-b-2 border-primary pb-2">📞 Contact</h2>
-                <div class="space-y-4">
-                    <div class="flex items-start">
-                        <div class="text-primary mr-4 mt-1">
-                            <i class="fas fa-map-marker-alt"></i>
+        <!-- Contact Section -->
+        <section id="contact" class="py-20 bg-noir text-white">
+            <div class="container mx-auto px-6">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                    <div class="animate-fade-in">
+                        <h2 class="text-4xl font-bold mb-6">
+                            Prendre <span class="text-bordeaux">contact</span>
+                        </h2>
+                        <p class="text-gray-300 mb-8 text-lg">
+                            Notre équipe est à votre disposition pour répondre à toutes vos questions et prendre rendez-vous pour l'entretien ou la réparation de votre véhicule.
+                        </p>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-start space-x-4">
+                                <div class="text-bordeaux text-2xl mt-1">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-lg mb-1">Adresse</h3>
+                                    <p class="text-gray-300">10 rue Arago, 25300 Pontarlier</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start space-x-4">
+                                <div class="text-bordeaux text-2xl mt-1">
+                                    <i class="fas fa-phone-alt"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-lg mb-1">Téléphone</h3>
+                                    <p class="text-gray-300">
+                                        03 63 80 00 43<br>
+                                        06 95 63 66 68
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start space-x-4">
+                                <div class="text-bordeaux text-2xl mt-1">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-lg mb-1">Email</h3>
+                                    <p class="text-gray-300">contact@garagedesneiges.fr</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start space-x-4">
+                                <div class="text-bordeaux text-2xl mt-1">
+                                    <i class="fas fa-clock"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-lg mb-1">Horaires</h3>
+                                    <p class="text-gray-300">
+                                        Lundi à Vendredi : 8h30 – 12h00 / 14h00 – 18h30<br>
+                                        Samedi : 8h30 – 13h00<br>
+                                        Dimanche : fermé
+                                    </p>
+                                </div>
+                            </div>
                         </div>
-                        <div>
-                            <h3 class="font-semibold">Adresse</h3>
-                            <p class="text-gray-600">10 rue Arago, 25300 Pontarlier</p>
+                        
+                        <div class="mt-10">
+                            <h3 class="font-bold text-xl mb-4">Nous suivre</h3>
+                            <div class="flex space-x-4">
+                                <a href="https://www.facebook.com/p/Garage-Des-Neiges-61554214880038/?locale=fr_FR" class="social-icon text-gray-300 hover:text-bordeaux text-2xl">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="https://www.instagram.com/garagedesneiges?igsh=MWdiM2MwbHpuNGZxbQ==" class="social-icon text-gray-300 hover:text-bordeaux text-2xl">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="https://www.tiktok.com/@garagedesneiges?_t=ZM-8y76993ZGyu&_r=1" class="social-icon text-gray-300 hover:text-bordeaux text-2xl">
+                                    <i class="fab fa-tiktok"></i>
+                                </a>
+                                <a href="mailto:garagedesneiges@gmail.com" class="social-icon text-gray-300 hover:text-bordeaux text-2xl">
+                                    <i class="fab fa-google"></i>
+                                </a>
+                            </div>
                         </div>
                     </div>
-                    <div class="flex items-start">
-                        <div class="text-primary mr-4 mt-1">
-                            <i class="fas fa-phone"></i>
-                        </div>
-                        <div>
-                            <h3 class="font-semibold">Téléphone fixe</h3>
-                            <p class="text-gray-600">03 63 80 00 43</p>
-                        </div>
+                    
+                    <div class="animate-fade-in animation-delay-100">
+                        <form class="bg-anthracite/50 p-8 rounded-xl shadow-lg">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <label class="block text-gray-300 mb-2">Nom et Prénom *</label>
+                                    <input type="text" required class="w-full px-4 py-3 bg-noir/50 border border-gray-700 rounded-lg focus:ring-2 focus:ring-bordeaux focus:border-transparent text-white placeholder-gray-400 transition-all duration-300">
+                                </div>
+                                
+                                <div>
+                                    <label class="block text-gray-300 mb-2">Adresse email *</label>
+                                    <input type="email" required class="w-full px-4 py-3 bg-noir/50 border border-gray-700 rounded-lg focus:ring-2 focus:ring-bordeaux focus:border-transparent text-white placeholder-gray-400 transition-all duration-300">
+                                </div>
+                                
+                                <div>
+                                    <label class="block text-gray-300 mb-2">Téléphone *</label>
+                                    <input type="tel" required class="w-full px-4 py-3 bg-noir/50 border border-gray-700 rounded-lg focus:ring-2 focus:ring-bordeaux focus:border-transparent text-white placeholder-gray-400 transition-all duration-300">
+                                </div>
+                                
+                                <div>
+                                    <label class="block text-gray-300 mb-2">Véhicule *</label>
+                                    <input type="text" placeholder="Marque, modèle, année" required class="w-full px-4 py-3 bg-noir/50 border border-gray-700 rounded-lg focus:ring-2 focus:ring-bordeaux focus:border-transparent text-white placeholder-gray-400 transition-all duration-300">
+                                </div>
+                                
+                                <div class="md:col-span-2">
+                                    <label class="block text-gray-300 mb-2">Service souhaité *</label>
+                                    <select class="w-full px-4 py-3 bg-noir/50 border border-gray-700 rounded-lg focus:ring-2 focus:ring-bordeaux focus:border-transparent text-white placeholder-gray-400 transition-all duration-300">
+                                        <option value="">Sélectionnez un service</option>
+                                        <option value="maintenance">Maintenance mécanique</option>
+                                        <option value="entretien">Entretien courant</option>
+                                        <option value="carrosserie">Carrosserie</option>
+                                        <option value="diagnostic">Diagnostic électronique</option>
+                                        <option value="climatisation">Climatisation</option>
+                                        <option value="autre">Autre</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="md:col-span-2">
+                                    <label class="block text-gray-300 mb-2">Description du problème *</label>
+                                    <textarea rows="5" required class="w-full px-4 py-3 bg-noir/50 border border-gray-700 rounded-lg focus:ring-2 focus:ring-bordeaux focus:border-transparent text-white placeholder-gray-400 transition-all duration-300"></textarea>
+                                </div>
+                                
+                                <div class="md:col-span-2">
+                                    <button type="submit" class="w-full bg-bordeaux hover:bg-bordeauxClair text-white font-bold py-4 px-6 rounded-lg transition-all duration-300 transform hover:scale-[1.02] shadow-lg">
+                                        Envoyer la demande
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
                     </div>
-                    <div class="flex items-start">
-                        <div class="text-primary mr-4 mt-1">
-                            <i class="fas fa-mobile-alt"></i>
-                        </div>
-                        <div>
-                            <h3 class="font-semibold">Téléphone mobile</h3>
-                            <p class="text-gray-600">06 95 63 66 68</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Hours Section -->
-            <section id="horaires" class="bg-white p-6 rounded-lg shadow-sm">
-                <h2 class="text-2xl font-bold mb-6 text-gray-800 border-b-2 border-primary pb-2">⏰ Horaires d'ouverture</h2>
-                <div class="space-y-3">
-                    <div class="flex justify-between">
-                        <span class="font-medium">Lundi à Vendredi</span>
-                        <span class="text-gray-600">8h30 – 12h00 / 14h00 – 18h30</span>
-                    </div>
-                    <div class="flex justify-between">
-                        <span class="font-medium">Samedi</span>
-                        <span class="text-gray-600">8h30 – 13h00</span>
-                    </div>
-                    <div class="flex justify-between">
-                        <span class="font-medium">Dimanche</span>
-                        <span class="text-gray-600">Fermé</span>
-                    </div>
-                </div>
-            </section>
-        </div>
-
-        <!-- Map Section -->
-        <section class="mb-12">
-            <h2 class="text-2xl font-bold mb-6 text-gray-800 border-b-2 border-primary pb-2">📍 Nous trouver</h2>
-            <div class="bg-white p-4 rounded-lg shadow-sm">
-                <div class="aspect-w-16 aspect-h-9">
-                    <iframe 
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2701.234567890123!2d6.351234!3d46.902345!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDbCsDU0JzA4LjQiTiA2wrAyMScwNC40IkU!5e0!3m2!1sfr!2sfr!4v1234567890123!5m2!1sfr!2sfr" 
-                        width="100%" 
-                        height="400" 
-                        style="border:0;" 
-                        allowfullscreen="" 
-                        loading="lazy" 
-                        class="rounded-lg"
-                        title="Carte Google Maps du Garage des Neiges"
-                    ></iframe>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer class="bg-gray-800 text-white py-8">
-        <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div>
-                    <h3 class="text-xl font-bold mb-4">GARAGE DES NEIGES</h3>
-                    <p class="text-gray-300">Votre garage automobile de confiance à Pontarlier depuis plus de 20 ans.</p>
+    <!-- Footer -->
+    <footer class="bg-noir/90 py-8 border-t border-anthracite">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <img src="images/logo.png" alt="Logo Garage des Neiges" class="h-20">
                 </div>
-                <div>
-                    <h3 class="text-xl font-bold mb-4">Liens rapides</h3>
-                    <ul class="space-y-2">
-                        <li><a href="#services" class="text-gray-300 hover:text-white transition-colors">Nos services</a></li>
-                        <li><a href="#contact" class="text-gray-300 hover:text-white transition-colors">Contact</a></li>
-                        <li><a href="#horaires" class="text-gray-300 hover:text-white transition-colors">Horaires</a></li>
-                    </ul>
+                
+                <div class="text-gray-400 text-center md:text-right">
+                    <p class="mb-2">© 2023 Garage des Neiges - Tous droits réservés</p>
+                    <p class="text-sm">SIRET: 123 456 789 00010 | N° TVA: FR12 345678901</p>
                 </div>
-                <div>
-                    <h3 class="text-xl font-bold mb-4">Nous suivre</h3>
-                    <div class="flex space-x-4">
-                        <a href="#" class="text-gray-300 hover:text-white text-2xl transition-colors">
-                            <i class="fab fa-facebook"></i>
-                        </a>
-                        <a href="#" class="text-gray-300 hover:text-white text-2xl transition-colors">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="border-t border-gray-700 mt-8 pt-6 text-center text-gray-400">
-                <p>&copy; 2023 Garage des Neiges. Tous droits réservés.</p>
             </div>
         </div>
     </footer>
 
     <script>
-        // Navigation handling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                }
+        // Animation du splash screen
+        document.addEventListener('DOMContentLoaded', () => {
+            const splash = document.getElementById('splash');
+            
+            // Afficher le splash
+            setTimeout(() => {
+                splash.classList.remove('opacity-0');
+                splash.classList.add('opacity-100');
+            }, 100);
+            
+            // Cacher le splash après 2 secondes
+            setTimeout(() => {
+                splash.classList.remove('opacity-100');
+                splash.classList.add('opacity-0');
+                
+                // Retirer complètement après l'animation
+                setTimeout(() => {
+                    splash.style.display = 'none';
+                }, 1000);
+            }, 2000);
+            
+            // Menu mobile
+            const menuToggle = document.getElementById('menu-toggle');
+            const closeMenu = document.getElementById('close-menu');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            menuToggle.addEventListener('click', () => {
+                mobileMenu.classList.remove('opacity-0', 'pointer-events-none');
+                mobileMenu.classList.add('opacity-100', 'pointer-events-auto');
             });
-        });
-
-        // Mobile menu toggle (placeholder functionality)
-        document.querySelector('.md\\:hidden').addEventListener('click', function() {
-            alert("Menu mobile - cette fonctionnalité serait implémentée avec un menu déroulant en production");
+            
+            closeMenu.addEventListener('click', () => {
+                mobileMenu.classList.remove('opacity-100', 'pointer-events-auto');
+                mobileMenu.classList.add('opacity-0', 'pointer-events-none');
+            });
+            
+            // Animation au scroll
+            const animateOnScroll = () => {
+                const elements = document.querySelectorAll('.animate-fade-in, .animate-slide-up');
+                
+                elements.forEach(element => {
+                    const elementPosition = element.getBoundingClientRect().top;
+                    const windowHeight = window.innerHeight;
+                    
+                    if (elementPosition < windowHeight - 100) {
+                        element.style.opacity = '1';
+                        element.style.transform = 'translateY(0)';
+                    }
+                });
+            };
+            
+            // Initial check
+            animateOnScroll();
+            
+            // Check on scroll
+            window.addEventListener('scroll', animateOnScroll);
+            
+            // Form submission
+            const form = document.querySelector('form');
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                
+                // Animation de succès
+                form.innerHTML = `
+                    <div class="text-center py-12 animate-fade-in">
+                        <div class="text-bordeaux text-6xl mb-6">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-4">Message envoyé avec succès !</h3>
+                        <p class="text-gray-300 mb-6">Nous vous contacterons dans les plus brefs délais.</p>
+                        <button onclick="window.location.reload()" class="bg-bordeaux hover:bg-bordeauxClair text-white font-bold py-3 px-6 rounded-lg transition-all duration-300">
+                            Retour
+                        </button>
+                    </div>
+                `;
+            });
         });
     </script>
 </body>
