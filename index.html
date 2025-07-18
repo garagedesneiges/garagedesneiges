@@ -448,75 +448,77 @@
                     
                    <div class="animate-fade-in animation-delay-100">
   <form action="https://formspree.io/f/mnnznpzo" method="POST" class="bg-anthracite/50 p-8 rounded-xl shadow-lg">
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-      <div>
-        <label class="block text-gray-300 mb-2">Nom et Prénom *</label>
-        <input name="nom" type="text" required class="w-full px-4 py-3 bg-noir/50 border border-gray-700 rounded-lg focus:ring-2 focus:ring-bordeaux focus:border-transparent text-white placeholder-gray-400 transition-all duration-300">
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <div>
+      <label class="block text-gray-300 mb-2">Nom et Prénom *</label>
+      <input name="nom" type="text" required class="w-full px-4 py-3 bg-noir/50 border border-gray-700 rounded-lg focus:ring-2 focus:ring-bordeaux focus:border-transparent text-white placeholder-gray-400 transition-all duration-300">
+    </div>
+
+    <div>
+      <label class="block text-gray-300 mb-2">Adresse email *</label>
+      <input name="email" type="email" required class="w-full px-4 py-3 bg-noir/50 border border-gray-700 rounded-lg focus:ring-2 focus:ring-bordeaux focus:border-transparent text-white placeholder-gray-400 transition-all duration-300">
+    </div>
+
+    <div>
+      <label class="block text-gray-300 mb-2">Téléphone *</label>
+      <input name="telephone" type="tel" required class="w-full px-4 py-3 bg-noir/50 border border-gray-700 rounded-lg focus:ring-2 focus:ring-bordeaux focus:border-transparent text-white placeholder-gray-400 transition-all duration-300">
+    </div>
+
+    <div>
+      <label class="block text-gray-300 mb-2">Véhicule *</label>
+      <input name="vehicule" type="text" placeholder="Marque, modèle, année" required class="w-full px-4 py-3 bg-noir/50 border border-gray-700 rounded-lg focus:ring-2 focus:ring-bordeaux focus:border-transparent text-white placeholder-gray-400 transition-all duration-300">
+    </div>
+
+    <div class="md:col-span-2">
+      <label class="block text-gray-300 mb-2">Service souhaité *</label>
+      <select name="service" required class="w-full px-4 py-3 bg-noir/50 border border-gray-700 rounded-lg focus:ring-2 focus:ring-bordeaux focus:border-transparent text-white transition-all duration-300">
+        <option value="">Sélectionnez un service</option>
+        <option value="Maintenance mécanique">Maintenance mécanique</option>
+        <option value="Entretien courant">Entretien courant</option>
+        <option value="Carrosserie">Carrosserie</option>
+        <option value="Diagnostic électronique">Diagnostic électronique</option>
+        <option value="Climatisation">Climatisation</option>
+        <option value="Autre">Autre</option>
+      </select>
+    </div>
+
+    <div class="md:col-span-2">
+      <label class="block text-gray-300 mb-2">Description du problème *</label>
+      <textarea name="description" rows="5" required class="w-full px-4 py-3 bg-noir/50 border border-gray-700 rounded-lg focus:ring-2 focus:ring-bordeaux focus:border-transparent text-white placeholder-gray-400 transition-all duration-300"></textarea>
+    </div>
+
+    <div class="md:col-span-2">
+      <button type="submit" class="w-full bg-bordeaux hover:bg-bordeauxClair text-white font-bold py-4 px-6 rounded-lg transition-all duration-300 transform hover:scale-[1.02] shadow-lg">
+        Envoyer la demande
+      </button>
+    </div>
+  </div>
+</form>
+
+<!-- ✅ Aucune balise </form> ou </div> en trop ici -->
+
+<!-- Structure globale que tu avais ensuite -->
+</div> <!-- Ce <div> doit correspondre à une ouverture plus haut dans ton code -->
+</div>
+</div>
+</section>
+</main>
+
+<!-- Footer -->
+<footer class="bg-noir/90 py-8 border-t border-anthracite">
+  <div class="container mx-auto px-6">
+    <div class="flex flex-col md:flex-row justify-between items-center">
+      <div class="mb-6 md:mb-0">
+        <img src="images/logo.png" alt="Logo Garage des Neiges" class="h-20">
       </div>
 
-      <div>
-        <label class="block text-gray-300 mb-2">Adresse email *</label>
-        <input name="email" type="email" required class="w-full px-4 py-3 bg-noir/50 border border-gray-700 rounded-lg focus:ring-2 focus:ring-bordeaux focus:border-transparent text-white placeholder-gray-400 transition-all duration-300">
-      </div>
-
-      <div>
-        <label class="block text-gray-300 mb-2">Téléphone *</label>
-        <input name="telephone" type="tel" required class="w-full px-4 py-3 bg-noir/50 border border-gray-700 rounded-lg focus:ring-2 focus:ring-bordeaux focus:border-transparent text-white placeholder-gray-400 transition-all duration-300">
-      </div>
-
-      <div>
-        <label class="block text-gray-300 mb-2">Véhicule *</label>
-        <input name="vehicule" type="text" placeholder="Marque, modèle, année" required class="w-full px-4 py-3 bg-noir/50 border border-gray-700 rounded-lg focus:ring-2 focus:ring-bordeaux focus:border-transparent text-white placeholder-gray-400 transition-all duration-300">
-      </div>
-
-      <div class="md:col-span-2">
-        <label class="block text-gray-300 mb-2">Service souhaité *</label>
-        <select name="service" required class="w-full px-4 py-3 bg-noir/50 border border-gray-700 rounded-lg focus:ring-2 focus:ring-bordeaux focus:border-transparent text-white transition-all duration-300">
-          <option value="">Sélectionnez un service</option>
-          <option value="Maintenance mécanique">Maintenance mécanique</option>
-          <option value="Entretien courant">Entretien courant</option>
-          <option value="Carrosserie">Carrosserie</option>
-          <option value="Diagnostic électronique">Diagnostic électronique</option>
-          <option value="Climatisation">Climatisation</option>
-          <option value="Autre">Autre</option>
-        </select>
-      </div>
-
-      <div class="md:col-span-2">
-        <label class="block text-gray-300 mb-2">Description du problème *</label>
-        <textarea name="description" rows="5" required class="w-full px-4 py-3 bg-noir/50 border border-gray-700 rounded-lg focus:ring-2 focus:ring-bordeaux focus:border-transparent text-white placeholder-gray-400 transition-all duration-300"></textarea>
-      </div>
-
-      <div class="md:col-span-2">
-        <button type="submit" class="w-full bg-bordeaux hover:bg-bordeauxClair text-white font-bold py-4 px-6 rounded-lg transition-all duration-300 transform hover:scale-[1.02] shadow-lg">
-          Envoyer la demande
-        </button>
+      <div class="text-gray-400 text-center md:text-right">
+        <p class="mb-2">© 2023 Garage des Neiges - Tous droits réservés</p>
+        <p class="text-sm">SIRET: 123 456 789 00010 | N° TVA: FR12 345678901</p>
       </div>
     </div>
-  </form>
-</div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- Footer -->
-    <footer class="bg-noir/90 py-8 border-t border-anthracite">
-        <div class="container mx-auto px-6">
-            <div class="flex flex-col md:flex-row justify-between items-center">
-                <div class="mb-6 md:mb-0">
-                    <img src="images/logo.png" alt="Logo Garage des Neiges" class="h-20">
-                </div>
-                
-                <div class="text-gray-400 text-center md:text-right">
-                    <p class="mb-2">© 2023 Garage des Neiges - Tous droits réservés</p>
-                    <p class="text-sm">SIRET: 123 456 789 00010 | N° TVA: FR12 345678901</p>
-                </div>
-            </div>
-        </div>
-    </footer>
+  </div>
+</footer>
 
     <script>
         // Animation du splash screen
