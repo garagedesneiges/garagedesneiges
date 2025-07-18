@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+!DOCTYPE html>
 <html lang="fr">
 <head>
     <base target="_self">
@@ -158,7 +158,7 @@
                             Votre <span class="text-bordeaux">garage</span> de confiance à Pontarlier
                         </h2>
                         <p class="text-anthracite mb-6 text-lg leading-relaxed">
-                            Situé au cœur de Pontarlier, le Garage des Neiges met à votre disposition son expertise automobile avec une expérience de plus de 10 ans. Notre équipe de professionnels qualifiés s'engage à vous offrir un service de qualité pour tous types de véhicules.
+                            Situé au cœur de Pontarlier, le Garage des Neiges met à votre disposition son expertise automobile depuis plus de 15 ans. Notre équipe de professionnels qualifiés s'engage à vous offrir un service de qualité pour tous types de véhicules.
                         </p>
                         
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -216,7 +216,7 @@
                     
                     <div class="relative h-96 lg:h-full rounded-xl overflow-hidden shadow-2xl animate-fade-in animation-delay-100">
                         <iframe 
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d286.4812052011809!2d6.343568142066233!3d46.91286750965442!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x478dbd8558d53575%3A0xe150721ef29431a3!2sGarage%20des%20neiges!5e0!3m2!1sfr!2sfr!4v1752788211811!5m2!1sfr!2sfr" 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2725.4739126995455!2d6.3432046!3d46.913063900000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x478dbd8558d53575%3A0xe150721ef29431a3!2sGarage%20des%20neiges!5e0!3m2!1sfr!2sjp!4v1752850058712!5m2!1sfr!2sjp" 
                             width="100%" 
                             height="100%" 
                             style="border:0;" 
@@ -408,7 +408,7 @@
                                 </div>
                                 <div>
                                     <h3 class="font-bold text-lg mb-1">Email</h3>
-                                    <p class="text-gray-300">garagedesneiges@gmail.com</p>
+                                    <p class="text-gray-300">contact@garagedesneiges.fr</p>
                                 </div>
                             </div>
                             
@@ -446,79 +446,75 @@
                         </div>
                     </div>
                     
-                   <div class="animate-fade-in animation-delay-100">
-  <form action="https://formspree.io/f/mnnznpzo" method="POST" class="bg-anthracite/50 p-8 rounded-xl shadow-lg">
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-    <div>
-      <label class="block text-gray-300 mb-2">Nom et Prénom *</label>
-      <input name="nom" type="text" required class="w-full px-4 py-3 bg-noir/50 border border-gray-700 rounded-lg focus:ring-2 focus:ring-bordeaux focus:border-transparent text-white placeholder-gray-400 transition-all duration-300">
-    </div>
+                    <div class="animate-fade-in animation-delay-100">
+                        <form action="https://formspree.io/f/mnnznpzo" method="POST" class="bg-anthracite/50 p-8 rounded-xl shadow-lg">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <label class="block text-gray-300 mb-2">Nom et Prénom *</label>
+                                    <input type="text" required class="w-full px-4 py-3 bg-noir/50 border border-gray-700 rounded-lg focus:ring-2 focus:ring-bordeaux focus:border-transparent text-white placeholder-gray-400 transition-all duration-300">
+                                </div>
+                                
+                                <div>
+                                    <label class="block text-gray-300 mb-2">Adresse email *</label>
+                                    <input type="email" required class="w-full px-4 py-3 bg-noir/50 border border-gray-700 rounded-lg focus:ring-2 focus:ring-bordeaux focus:border-transparent text-white placeholder-gray-400 transition-all duration-300">
+                                </div>
+                                
+                                <div>
+                                    <label class="block text-gray-300 mb-2">Téléphone *</label>
+                                    <input type="tel" required class="w-full px-4 py-3 bg-noir/50 border border-gray-700 rounded-lg focus:ring-2 focus:ring-bordeaux focus:border-transparent text-white placeholder-gray-400 transition-all duration-300">
+                                </div>
+                                
+                                <div>
+                                    <label class="block text-gray-300 mb-2">Véhicule *</label>
+                                    <input type="text" placeholder="Marque, modèle, année" required class="w-full px-4 py-3 bg-noir/50 border border-gray-700 rounded-lg focus:ring-2 focus:ring-bordeaux focus:border-transparent text-white placeholder-gray-400 transition-all duration-300">
+                                </div>
+                                
+                                <div class="md:col-span-2">
+                                    <label class="block text-gray-300 mb-2">Service souhaité *</label>
+                                    <select class="w-full px-4 py-3 bg-noir/50 border border-gray-700 rounded-lg focus:ring-2 focus:ring-bordeaux focus:border-transparent text-white placeholder-gray-400 transition-all duration-300">
+                                        <option value="">Sélectionnez un service</option>
+                                        <option value="maintenance">Maintenance mécanique</option>
+                                        <option value="entretien">Entretien courant</option>
+                                        <option value="carrosserie">Carrosserie</option>
+                                        <option value="diagnostic">Diagnostic électronique</option>
+                                        <option value="climatisation">Climatisation</option>
+                                        <option value="autre">Autre</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="md:col-span-2">
+                                    <label class="block text-gray-300 mb-2">Description du problème *</label>
+                                    <textarea rows="5" required class="w-full px-4 py-3 bg-noir/50 border border-gray-700 rounded-lg focus:ring-2 focus:ring-bordeaux focus:border-transparent text-white placeholder-gray-400 transition-all duration-300"></textarea>
+                                </div>
+                                
+                                <div class="md:col-span-2">
+                                    <button type="submit" class="w-full bg-bordeaux hover:bg-bordeauxClair text-white font-bold py-4 px-6 rounded-lg transition-all duration-300 transform hover:scale-[1.02] shadow-lg">
+                                        Envoyer la demande
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 
-    <div>
-      <label class="block text-gray-300 mb-2">Adresse email *</label>
-      <input name="email" type="email" required class="w-full px-4 py-3 bg-noir/50 border border-gray-700 rounded-lg focus:ring-2 focus:ring-bordeaux focus:border-transparent text-white placeholder-gray-400 transition-all duration-300">
-    </div>
-
-    <div>
-      <label class="block text-gray-300 mb-2">Téléphone *</label>
-      <input name="telephone" type="tel" required class="w-full px-4 py-3 bg-noir/50 border border-gray-700 rounded-lg focus:ring-2 focus:ring-bordeaux focus:border-transparent text-white placeholder-gray-400 transition-all duration-300">
-    </div>
-
-    <div>
-      <label class="block text-gray-300 mb-2">Véhicule *</label>
-      <input name="vehicule" type="text" placeholder="Marque, modèle, année" required class="w-full px-4 py-3 bg-noir/50 border border-gray-700 rounded-lg focus:ring-2 focus:ring-bordeaux focus:border-transparent text-white placeholder-gray-400 transition-all duration-300">
-    </div>
-
-    <div class="md:col-span-2">
-      <label class="block text-gray-300 mb-2">Service souhaité *</label>
-      <select name="service" required class="w-full px-4 py-3 bg-noir/50 border border-gray-700 rounded-lg focus:ring-2 focus:ring-bordeaux focus:border-transparent text-white transition-all duration-300">
-        <option value="">Sélectionnez un service</option>
-        <option value="Maintenance mécanique">Maintenance mécanique</option>
-        <option value="Entretien courant">Entretien courant</option>
-        <option value="Carrosserie">Carrosserie</option>
-        <option value="Diagnostic électronique">Diagnostic électronique</option>
-        <option value="Climatisation">Climatisation</option>
-        <option value="Autre">Autre</option>
-      </select>
-    </div>
-
-    <div class="md:col-span-2">
-      <label class="block text-gray-300 mb-2">Description du problème *</label>
-      <textarea name="description" rows="5" required class="w-full px-4 py-3 bg-noir/50 border border-gray-700 rounded-lg focus:ring-2 focus:ring-bordeaux focus:border-transparent text-white placeholder-gray-400 transition-all duration-300"></textarea>
-    </div>
-
-    <div class="md:col-span-2">
-      <button type="submit" class="w-full bg-bordeaux hover:bg-bordeauxClair text-white font-bold py-4 px-6 rounded-lg transition-all duration-300 transform hover:scale-[1.02] shadow-lg">
-        Envoyer la demande
-      </button>
-    </div>
-  </div>
-</form>
-
-<!-- ✅ Aucune balise </form> ou </div> en trop ici -->
-
-<!-- Structure globale que tu avais ensuite -->
-</div> <!-- Ce <div> doit correspondre à une ouverture plus haut dans ton code -->
-</div>
-</div>
-</section>
-</main>
-
-<!-- Footer -->
-<footer class="bg-noir/90 py-8 border-t border-anthracite">
-  <div class="container mx-auto px-6">
-    <div class="flex flex-col md:flex-row justify-between items-center">
-      <div class="mb-6 md:mb-0">
-        <img src="images/logo.png" alt="Logo Garage des Neiges" class="h-20">
-      </div>
-
-      <div class="text-gray-400 text-center md:text-right">
-        <p class="mb-2">© 2023 Garage des Neiges - Tous droits réservés</p>
-        <p class="text-sm">SIRET: 123 456 789 00010 | N° TVA: FR12 345678901</p>
-      </div>
-    </div>
-  </div>
-</footer>
+    <!-- Footer -->
+    <footer class="bg-noir/90 py-8 border-t border-anthracite">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <img src="images/logo.png" alt="Logo Garage des Neiges" class="h-20">
+                </div>
+                
+                <div class="text-gray-400 text-center md:text-right">
+                    <p class="mb-2">© 2023 Garage des Neiges - Tous droits réservés</p>
+                    <p class="text-sm">SIRET: 123 456 789 00010 | N° TVA: FR12 345678901</p>
+                </div>
+            </div>
+        </div>
+    </footer>
 
     <script>
         // Animation du splash screen
@@ -577,8 +573,27 @@
             
             // Check on scroll
             window.addEventListener('scroll', animateOnScroll);
-         });
-        
+            
+            // Form submission
+            const form = document.querySelector('form');
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                
+                // Animation de succès
+                form.innerHTML = `
+                    <div class="text-center py-12 animate-fade-in">
+                        <div class="text-bordeaux text-6xl mb-6">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-4">Message envoyé avec succès !</h3>
+                        <p class="text-gray-300 mb-6">Nous vous contacterons dans les plus brefs délais.</p>
+                        <button onclick="window.location.reload()" class="bg-bordeaux hover:bg-bordeauxClair text-white font-bold py-3 px-6 rounded-lg transition-all duration-300">
+                            Retour
+                        </button>
+                    </div>
+                `;
+            });
+        });
     </script>
 </body>
 </html>
