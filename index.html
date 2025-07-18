@@ -577,7 +577,26 @@
             
             // Check on scroll
             window.addEventListener('scroll', animateOnScroll);
-        
+            
+            // Form submission
+            const form = document.querySelector('form');
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                
+                // Animation de succès
+                form.innerHTML = 
+                    <div class="text-center py-12 animate-fade-in">
+                        <div class="text-bordeaux text-6xl mb-6">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-4">Message envoyé avec succès !</h3>
+                        <p class="text-gray-300 mb-6">Nous vous contacterons dans les plus brefs délais.</p>
+                        <button onclick="window.location.reload()" class="bg-bordeaux hover:bg-bordeauxClair text-white font-bold py-3 px-6 rounded-lg transition-all duration-300">
+                            Retour
+                        </button>
+                    </div>
+                ;
+            });
         });
         
     </script>
