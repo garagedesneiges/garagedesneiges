@@ -552,6 +552,25 @@
                 mobileMenu.classList.remove('opacity-100', 'pointer-events-auto');
                 mobileMenu.classList.add('opacity-0', 'pointer-events-none');
             });
+             // Ouvrir menu mobile
+            menuToggle.addEventListener('click', () => {
+                mobileMenu.classList.remove('opacity-0', 'pointer-events-none');
+                mobileMenu.classList.add('opacity-100', 'pointer-events-auto');
+            });
+
+            // Fermer menu mobile (bouton croix)
+            closeMenu.addEventListener('click', () => {
+                mobileMenu.classList.remove('opacity-100', 'pointer-events-auto');
+                mobileMenu.classList.add('opacity-0', 'pointer-events-none');
+    });
+
+    // 🔧 Fermer menu mobile après clic sur un lien
+    document.querySelectorAll('#mobile-menu a[href^="#"]').forEach(link => {
+        link.addEventListener('click', () => {
+            mobileMenu.classList.remove('opacity-100', 'pointer-events-auto');
+            mobileMenu.classList.add('opacity-0', 'pointer-events-none');
+        });
+    });
             
             // Animation au scroll
             const animateOnScroll = () => {
