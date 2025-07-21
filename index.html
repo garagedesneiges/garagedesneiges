@@ -451,27 +451,27 @@
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                                 <div>
                                     <label class="block text-gray-300 mb-2">Nom et Prénom *</label>
-                                    <input type="text" required class="w-full px-4 py-3 bg-noir/50 border border-gray-700 rounded-lg focus:ring-2 focus:ring-bordeaux focus:border-transparent text-white placeholder-gray-400 transition-all duration-300">
+                                    <input name="name" type="text" required class="w-full px-4 py-3 bg-noir/50 border border-gray-700 rounded-lg focus:ring-2 focus:ring-bordeaux focus:border-transparent text-white placeholder-gray-400 transition-all duration-300">
                                 </div>
-                                
+        
                                 <div>
                                     <label class="block text-gray-300 mb-2">Adresse email *</label>
-                                    <input type="email" required class="w-full px-4 py-3 bg-noir/50 border border-gray-700 rounded-lg focus:ring-2 focus:ring-bordeaux focus:border-transparent text-white placeholder-gray-400 transition-all duration-300">
+                                    <input name="email" type="email" required class="w-full px-4 py-3 bg-noir/50 border border-gray-700 rounded-lg focus:ring-2 focus:ring-bordeaux focus:border-transparent text-white placeholder-gray-400 transition-all duration-300">
                                 </div>
-                                
+        
                                 <div>
                                     <label class="block text-gray-300 mb-2">Téléphone *</label>
-                                    <input type="tel" required class="w-full px-4 py-3 bg-noir/50 border border-gray-700 rounded-lg focus:ring-2 focus:ring-bordeaux focus:border-transparent text-white placeholder-gray-400 transition-all duration-300">
+                                    <input name="phone" type="tel" required class="w-full px-4 py-3 bg-noir/50 border border-gray-700 rounded-lg focus:ring-2 focus:ring-bordeaux focus:border-transparent text-white placeholder-gray-400 transition-all duration-300">
                                 </div>
-                                
+        
                                 <div>
                                     <label class="block text-gray-300 mb-2">Véhicule *</label>
-                                    <input type="text" placeholder="Immatr. ou VIN obligatoire" required class="w-full px-4 py-3 bg-noir/50 border border-gray-700 rounded-lg focus:ring-2 focus:ring-bordeaux focus:border-transparent text-white placeholder-gray-400 transition-all duration-300">
+                                    <input name="vehicle" type="text" placeholder="Immatr. ou VIN obligatoire" required class="w-full px-4 py-3 bg-noir/50 border border-gray-700 rounded-lg focus:ring-2 focus:ring-bordeaux focus:border-transparent text-white placeholder-gray-400 transition-all duration-300">
                                 </div>
-                                
+        
                                 <div class="md:col-span-2">
                                     <label class="block text-gray-300 mb-2">Service souhaité *</label>
-                                    <select class="w-full px-4 py-3 bg-noir/50 border border-gray-700 rounded-lg focus:ring-2 focus:ring-bordeaux focus:border-transparent text-white placeholder-gray-400 transition-all duration-300">
+                                    <select name="service" required class="w-full px-4 py-3 bg-noir/50 border border-gray-700 rounded-lg focus:ring-2 focus:ring-bordeaux focus:border-transparent text-white transition-all duration-300">
                                         <option value="">Sélectionnez un service</option>
                                         <option value="maintenance">Maintenance mécanique</option>
                                         <option value="entretien">Entretien courant</option>
@@ -481,15 +481,15 @@
                                         <option value="autre">Autre</option>
                                     </select>
                                 </div>
-                                
+        
                                 <div class="md:col-span-2">
                                     <label class="block text-gray-300 mb-2">Description du problème *</label>
-                                    <textarea rows="5" required class="w-full px-4 py-3 bg-noir/50 border border-gray-700 rounded-lg focus:ring-2 focus:ring-bordeaux focus:border-transparent text-white placeholder-gray-400 transition-all duration-300"></textarea>
+                                    <textarea name="message" rows="5" required class="w-full px-4 py-3 bg-noir/50 border border-gray-700 rounded-lg focus:ring-2 focus:ring-bordeaux focus:border-transparent text-white placeholder-gray-400 transition-all duration-300"></textarea>
                                 </div>
-                                
+        
                                 <div class="md:col-span-2">
                                     <button type="submit" class="w-full bg-bordeaux hover:bg-bordeauxClair text-white font-bold py-4 px-6 rounded-lg transition-all duration-300 transform hover:scale-[1.02] shadow-lg">
-                                        Envoyer la demande
+                                         Envoyer la demande
                                     </button>
                                 </div>
                             </div>
@@ -595,23 +595,39 @@
             
             // Form submission
             const form = document.querySelector('form');
-            form.addEventListener('submit', (e) => {
+            form.addEventListener('submit', async (e) => {
                 e.preventDefault();
-                
-                // Animation de succès
-                form.innerHTML = `
-                    <div class="text-center py-12 animate-fade-in">
-                        <div class="text-bordeaux text-6xl mb-6">
-                            <i class="fas fa-check-circle"></i>
-                        </div>
-                        <h3 class="text-2xl font-bold text-white mb-4">Message envoyé avec succès !</h3>
-                        <p class="text-gray-300 mb-6">Nous vous contacterons dans les plus brefs délais.</p>
-                        <button onclick="window.location.reload()" class="bg-bordeaux hover:bg-bordeauxClair text-white font-bold py-3 px-6 rounded-lg transition-all duration-300">
-                            Retour
-                        </button>
-                    </div>
-                `;
-            });
+
+                const formData = new FormData(form);
+                try {
+                    const response = await fetch(form.action, {
+                        method: 'POST',
+                        body: formData,
+                        headers: {
+                            'Accept': 'application/json'
+                        }
+                    });
+
+                    if (response.ok) {
+                        form.innerHTML = `
+                            <div class="text-center py-12 animate-fade-in">
+                                <div class="text-bordeaux text-6xl mb-6">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                                <h3 class="text-2xl font-bold text-white mb-4">Message envoyé avec succès !</h3>
+                                <p class="text-gray-300 mb-6">Nous vous contacterons dans les plus brefs délais.</p>
+                                <button onclick="window.location.reload()" class="bg-bordeaux hover:bg-bordeauxClair text-white font-bold py-3 px-6 rounded-lg transition-all duration-300">
+                                    Retour
+                                </button>
+                            </div>
+                        `;
+                    } else {
+                        alert("Une erreur est survenue. Veuillez réessayer.");
+                            }
+                } catch (error) {
+                    alert("Erreur réseau. Vérifiez votre connexion.");
+                }
+        });
         });
     </script>
 </body>
